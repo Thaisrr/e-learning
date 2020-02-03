@@ -1,0 +1,16 @@
+#forum-section {
+  display: none;
+}
+
+section {
+  width: 100%;
+  padding: 30px;
+  height: 100vh;
+  border-bottom: thin solid var(--secondary);
+  box-sizing: border-box;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,28 @@
+<main>
+  <div class="game-section">
+    <div class="game-container pointer-container" #map></div>
+  </div>
+
+  <div class="answer-container">
+    <h2>{{game.name}}</h2>
+    <div class="explanation">
+      <p>Dans le code suivant, chaque div correspond à un personnage. A l'aide des selecteurs CSS, selectionnez les Dragons. </p>
+    </div>
+    <fieldset>
+      <legend>Réponse</legend>
+      <div>Entrez votre code ici. Attention à l'orthographe.</div>
+      <div class="code-container">
+        <p><\div class="weapon"></p>
+        <blockquote><\div><\/div></blockquote>
+        <p><\/div></p>
+        <p><\div class="weapon"><\/div></p>
+        <p><\div id="weapon"><\/div></p>
+        <p><\div><\/div></p>
+      </div>
+      <form [formGroup]="form">
+        <input formControlName="answer" id="answer" placeholder="Entrez votre réponse ici" max="50">
+        <button type="submit" (click)="validateForm()">Répondre</button>
+      </form>
+    </fieldset>
+  </div>
+</main>
