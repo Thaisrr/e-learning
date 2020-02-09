@@ -14,3 +14,12 @@ h2 {
   width: 100%;
   text-align: center;
 }
+
+#paths-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 25%;
+}

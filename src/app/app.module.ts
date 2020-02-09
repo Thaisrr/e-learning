@@ -10,6 +10,10 @@ import { FlexboxGameComponent } from './components/games/flexbox-game/flexbox-ga
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import { SelectorGameComponent } from './components/games/selector-game/selector-game.component';
+import { QuizFormComponent } from './components/Forms/quiz-form/quiz-form.component';
+import { PathFormComponent } from './components/Forms/path-form/path-form.component';
+import { MessageComponent } from './components/Core/message/message.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { SelectorGameComponent } from './components/games/selector-game/selector
     FooterComponent,
     HomeComponent,
     FlexboxGameComponent,
-    SelectorGameComponent
+    SelectorGameComponent,
+    QuizFormComponent,
+    PathFormComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +33,12 @@ import { SelectorGameComponent } from './components/games/selector-game/selector
       {path: '', component: HomeComponent},
       {path: 'user/home', component: HomeComponent},
       {path: 'user/game/flexbox', component: FlexboxGameComponent},
-      {path: 'user/game/selector', component: SelectorGameComponent}
+      {path: 'user/game/selector', component: SelectorGameComponent},
+      {path: 'trainer/add/path', component: PathFormComponent}
     ]),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

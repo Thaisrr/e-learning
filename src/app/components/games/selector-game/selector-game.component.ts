@@ -55,7 +55,7 @@ On change la map en fonction du nouveau niveau
 
   /*
 Afficher les bonnes images, en fonction de la réponse attendue. Entourée les div choisies par le selecteur
--> Dans Level, générer les divs a afficher ?
+-> Dans QuizLevel, générer les divs a afficher ?
    */
   changeMap() {
     const container = document.querySelector('.game-container');

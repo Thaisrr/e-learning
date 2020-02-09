@@ -1,0 +1,101 @@
+<ng-container *ngIf="!pathCreated">
+  <fieldset>
+    <legend>Nouveau Parcours</legend>
+    <form [formGroup]="pathForm" >
+      <input formControlName="name" placeholder="name" required maxlength="30">
+      <textarea formControlName="description" placeholder="Description du parcours" required="required" maxlength="150"></textarea>
+      <small>150 caractères maximum</small>
+      <select formControlName="level">
+        <option selected value="1">Débutant</option>
+        <option value="2">Moyen</option>
+        <option value="3">Expert</option>
+      </select>
+      <button type="submit" (click)="postPath()">Valider</button>
+    </form>
+  </fieldset>
+</ng-container>
+
+
+<ng-container *ngIf="pathCreated">
+
+  <ng-container *ngIf="!course">
+    <fieldset>
+      <legend>Nouveau Chapitre</legend>
+      <h4>Parcours : {{path.name}}</h4>
+      <p>Chapitre n°{{chapterCount}}</p>
+
+      <form [formGroup]="courseForm">
+        <input formControlName="title" required placeholder="Nom" maxlength="50">
+        <textarea formControlName="chapter" placeholder="Contenu du cours" required minlength="50">
+      </textarea>
+        <P>A quel type d'évaluation voulez-vous associer ce cours ?</P>
+        <select formControlName="type" required>
+          <option value="quiz" selected (click)="isGame = false">Quiz</option>
+          <option value="game" (click)="isGame = true">Jeu</option>
+        </select>
+
+        <ng-container *ngIf="isGame">
+          <input formControlName="game" type="text" placeholder="Nom du jeu">
+          <small>Veuillez valider auprès d'un administrateur <strong>avant</strong> d'ajouter un jeu ! </small>
+        </ng-container>
+
+        <button type="submit" (click)="postCourse()">Valider</button>
+      </form>
+    </fieldset>
+  </ng-container>
+
+
+    <ng-container *ngIf="addQuiz">
+      <ng-container *ngIf="question === undefined else ANSWERS">
+        <fieldset>
+          <legend>Ajouter une question</legend>
+          <p>Question n°{{questionsCount}}</p>
+          <form [formGroup]="questionForm">
+            <input formControlName="title" type="text" required="true" maxlength="250" placeholder="Intitulé de la question">
+            <select formControlName="type" required="required" >
+              <option (select)="isQcm = true" value="0">QCM</option>
+              <option selected (select)="isQcm = false" value="1">Réponse libre</option>
+            </select>
+            <button type="button" (click)="addQuestion()">Suivant</button>
+          </form>
+        </fieldset>
+      </ng-container>
+    <ng-template #ANSWERS>
+      <fieldset>
+        <legend>Réponse(s)</legend>
+        <p>{{question.title}}</p>
+        <form [formGroup]="questionForm">
+          <ng-container *ngIf="!isQcm else QCM">
+            <div class="answer-input">
+              <input formControlName="answer1" type="text" placeholder="Réponse">
+            </div>
+          </ng-container>
+          <ng-template #QCM>
+            <div class="answer-input" >
+              <input formControlName="answer2" type="text" placeholder="Réponse">
+              <label for="isCorrect2">Bonne réponse ?</label>
+              <input formControlName="isCorrect2" type="checkbox" id="isCorrect2">
+            </div>
+
+            <div class="answer-input">
+              <input formControlName="answer3" type="text" placeholder="Réponse">
+              <label for="isCorrect3">Bonne réponse ?</label>
+              <input formControlName="isCorrect3" type="checkbox" id="isCorrect3">
+            </div>
+
+            <div class="answer-input">
+              <input formControlName="answer4" type="text" placeholder="Réponse">
+              <label for="isCorrect4">Bonne réponse ?</label>
+              <input formControlName="isCorrect4" type="checkbox" id="isCorrect4">
+            </div>
+          </ng-template>
+          <button type="submit" (click)="addAnswer()">Valider</button>
+        </form>
+      </fieldset>
+    </ng-template>
+
+
+
+    </ng-container>
+
+</ng-container>

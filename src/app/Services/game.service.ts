@@ -52,7 +52,7 @@ export class GameService {
   generateSelectorGame() {
     this.game = new Game('Selectors Game');
     /*
-    Level : nom de selecteur, question, code
+    QuizLevel : nom de selecteur, question, code
     On affiche la question, les divs correspondantes.
      */
     this.game.explication = 'A l\'aide des sélecteurs CSS, saisissez-vous des armes demandées';

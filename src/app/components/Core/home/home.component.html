@@ -6,15 +6,20 @@
   </section>
 
   <!-- Training section : ---------------------------------->
-  <section id="training-section">
+  <section id="courses-section">
     <h2>Reprendre l'aventure</h2>
 
   </section>
 
   <!-- Classes section ------------------------------------->
-  <section id="classes-section">
+  <section id="path-section">
     <h2>Toutes les quêtes</h2>
-
+    <ng-container id="path-container" *ngFor="let p of paths">
+      <div class="card">
+        <h3 class="card-title">{{p.name}}</h3>
+        <p class="card-body">{{p.description}}</p>
+      </div>
+    </ng-container>
   </section>
 
   <!-- Forum Section --------------------------------------->

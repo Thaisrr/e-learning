@@ -64,7 +64,7 @@ export class FlexboxGameComponent implements OnInit, AfterViewInit {
     console.log(`Level : ${this.level}`);
     console.log(`Points : ${this.points}`);
     /*
-    On récupère le Level associé au jeu.
+    On récupère le QuizLevel associé au jeu.
     On display le nombre de div correspondant
     On display ou non le héro
      */
