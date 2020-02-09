@@ -1,0 +1,46 @@
+<ng-container *ngIf="seeIntro else course">
+  <p>{{path.name}}</p>
+  <p>{{path.description}}</p>
+  <ul>
+    <li *ngFor="let c of path.courses">{{c.title}}
+      <span>
+    <button type="button" (click)="displayCourse(c.id)">Voir</button>
+  </span></li>
+  </ul>
+</ng-container>
+
+<ng-template #course>
+  <ng-container *ngIf="seeCourse">
+    <h2>{{currentCourse.title}}</h2>
+    <div id="course-container">{{currentCourse.chapter}}</div>
+    <div class="course-footer">
+      <button (click)="validateCourse()">J'ai compris !</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="seeQuiz">
+    <h2>Validez vos compétences !</h2>
+    <div class="quiz-container">
+      <form [formGroup]="answersForm">
+        <div class="question" *ngFor="let q of currentCourse.quiz.questions, let i = index">
+          <p>{{q.title}}</p>
+          <ng-container *ngIf="q.type != qcm">
+            <input formControlName="answer" placeholder="answer">
+          </ng-container>
+          <ng-container *ngIf="q.type === qcm">
+            <div *ngFor="let a of q.answers">
+              <label for="check">{{a.text}}</label> <span>index : {{i}}</span>
+              <input formControlName="{{i}}" id="check" type="checkbox" value="{{a.text}}">
+            </div>
+          </ng-container>
+        </div>
+        <button (click)="checkAnswer()">Valider</button>
+      </form>
+
+    </div>
+  </ng-container>
+
+</ng-template>
+
+
+

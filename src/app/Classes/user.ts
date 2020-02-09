@@ -14,6 +14,7 @@ export class User {
   tokken: string;
   role: Role;
   skills: Skills[] = [];
+  money: number;
 
 
   createUser(firstname: string, pseudo: string, mail: string, idPoleEmploi: string, password: string) {

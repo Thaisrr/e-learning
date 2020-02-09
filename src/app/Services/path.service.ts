@@ -23,16 +23,15 @@ export class PathService {
   ) { }
 
   getPaths(): Observable<Path[]> {
-     return this.http.get<Path[]>(this.pathUrl)
+     /*return this.http.get<Path[]>(this.pathUrl)
         .pipe(
           catchError(this.handleError<Path[]>('gePaths', []))
-    );
+    ); */
+     return of(PATHS);
   }
 
   postPaths(p: Path) {
     this.messageService.add('Parcours enregistré');
-    console.log('Ajoutée !');
-    PATHS.push(p);
     return this.http.post(this.pathUrl, p, this.httpOptions)
       .pipe(
         tap(_ => this.log(`updated hero id=${p.id}`)),
@@ -42,11 +41,14 @@ export class PathService {
 
   getPathById(id: number): Observable<Path> {
     const url = `${this.pathUrl}/${id}`;
+    return of(PATHS[id]);
+    /*
     return this.http.get<Path>(url)
       .pipe(
         tap(_ => this.log('get path by id')),
         catchError(this.handleError<Path>('get path by id'))
       );
+     */
   }
 
   updatePath(path: Path): Observable<any> {

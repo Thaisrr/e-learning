@@ -13,6 +13,8 @@ import { SelectorGameComponent } from './components/games/selector-game/selector
 import { PathFormComponent } from './components/Forms/path-form/path-form.component';
 import { MessageComponent } from './components/Core/message/message.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PathsComponent } from './components/Core/paths/paths.component';
+import {PathDetailsComponent} from './components/Core/path-details/path-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {HttpClientModule} from '@angular/common/http';
     FlexboxGameComponent,
     SelectorGameComponent,
     PathFormComponent,
-    MessageComponent
+    MessageComponent,
+    PathsComponent,
+    PathDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import {HttpClientModule} from '@angular/common/http';
       {path: 'user/home', component: HomeComponent},
       {path: 'user/game/flexbox', component: FlexboxGameComponent},
       {path: 'user/game/selector', component: SelectorGameComponent},
-      {path: 'trainer/add/path', component: PathFormComponent}
+      {path: 'trainer/add/path', component: PathFormComponent},
+      {path: 'user/paths', component: PathsComponent},
+      {path: 'user/path/:id', component: PathDetailsComponent}
     ]),
     FormsModule,
     ReactiveFormsModule,

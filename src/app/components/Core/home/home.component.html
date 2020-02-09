@@ -14,10 +14,13 @@
   <!-- Classes section ------------------------------------->
   <section id="path-section">
     <h2>Toutes les quêtes</h2>
-    <ng-container id="path-container" *ngFor="let p of paths">
+    <ng-container id="path-container" *ngFor="let p of firstsPath">
       <div class="card">
         <h3 class="card-title">{{p.name}}</h3>
         <p class="card-body">{{p.description}}</p>
+        <div class="card-footer">
+          <a [routerLink]="['/user/path/', p.id]">Commencer</a>
+        </div>
       </div>
     </ng-container>
   </section>

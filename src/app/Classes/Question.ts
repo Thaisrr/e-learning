@@ -2,6 +2,7 @@ import {Answer} from './answer';
 import {QuestionTypes} from './questionTypes';
 
 export class Question {
+  id: number;
   title: string;
   answer: string;
   answers: Answer[] = [];

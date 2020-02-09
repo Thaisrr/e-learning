@@ -8,6 +8,6 @@ export class Course {
   quiz = new Quiz();
   game: string;
   id: number;
-  skill: Skills;
+  skill: Skills = new Skills();
 
 }
