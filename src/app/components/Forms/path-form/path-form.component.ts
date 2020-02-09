@@ -8,6 +8,7 @@ import {QuestionTypes} from '../../../Classes/questionTypes';
 import {Answer} from '../../../Classes/answer';
 import {Router} from '@angular/router';
 import {QuizLevel} from '../../../Classes/quiz-level';
+import {Skills} from '../../../Classes/skills';
 
 @Component({
   selector: 'app-path-form',
@@ -25,6 +26,7 @@ export class PathFormComponent implements OnInit {
     title: new FormControl(),
     type: new FormControl(),
     chapter: new FormControl(),
+    skill: new FormControl(),
     game: new FormControl(),
     addQuiz: new FormControl()
   });
@@ -86,6 +88,10 @@ export class PathFormComponent implements OnInit {
     this.course = new Course();
     this.course.title = this.courseForm.get('title').value;
     this.course.chapter = this.courseForm.get('chapter').value;
+    const skill = new Skills();
+    skill.name = this.courseForm.get('skill').value;
+    skill.level = this.path.level;
+    this.course.skill = skill;
     if (this.courseForm.get('type').value === 'game') {
       this.course.game = this.courseForm.get('game').value;
       this.continueAdding();

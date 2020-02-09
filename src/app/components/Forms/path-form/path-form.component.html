@@ -28,6 +28,7 @@
         <input formControlName="title" required placeholder="Nom" maxlength="50">
         <textarea formControlName="chapter" placeholder="Contenu du cours" required minlength="50">
       </textarea>
+        <input formControlName="skill" type="text" maxlength="50" placeholder="Nom de la compétence validée à l'issue du cours">
         <P>A quel type d'évaluation voulez-vous associer ce cours ?</P>
         <select formControlName="type" required>
           <option value="quiz" selected (click)="isGame = false">Quiz</option>

@@ -10,7 +10,6 @@ import { FlexboxGameComponent } from './components/games/flexbox-game/flexbox-ga
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import { SelectorGameComponent } from './components/games/selector-game/selector-game.component';
-import { QuizFormComponent } from './components/Forms/quiz-form/quiz-form.component';
 import { PathFormComponent } from './components/Forms/path-form/path-form.component';
 import { MessageComponent } from './components/Core/message/message.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -23,7 +22,6 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     FlexboxGameComponent,
     SelectorGameComponent,
-    QuizFormComponent,
     PathFormComponent,
     MessageComponent
   ],

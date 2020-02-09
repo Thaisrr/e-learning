@@ -1,5 +1,6 @@
 import {Quiz} from './quiz';
 import {QuizLevel} from './quiz-level';
+import {Skills} from './skills';
 
 export class Course {
   title: string;
@@ -7,5 +8,6 @@ export class Course {
   quiz = new Quiz();
   game: string;
   id: number;
+  skill: Skills;
 
 }
